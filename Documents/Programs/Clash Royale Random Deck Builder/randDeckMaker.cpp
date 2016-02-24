@@ -57,20 +57,22 @@ int main() {
       getline(cin, ban);
       banID = getIndex(CARD_LIST, NUM_CARDS, ban);
       newBan = !inArray(bannedCards, numBans, banID);
-      if (banID < 0) {
-        cout << ban << " is not a valid card. Type the name exactly as it ";
-        cout << "appears on the in-game card.\n";
-      }
-      else if (banID >= 0 && newBan) {
-        bannedCards[numBans] = banID;
-        numBans++;
-        cout << ban << " was successfully removed.\n";
-        if (numBans >= MAX_BAN_SIZE) {
-          cout << "Max ban size reached.\n";
+      if (ban != "done") {
+        if (banID < 0) {
+          cout << ban << " is not a valid card. Type the name exactly as it ";
+          cout << "appears on the in-game card.\n";
         }
-      }
-      else {
-        cout << "Card was previously removed from the pool.\n";
+        else if (banID >= 0 && newBan) {
+          bannedCards[numBans] = banID;
+          numBans++;
+          cout << ban << " was successfully removed.\n";
+          if (numBans >= MAX_BAN_SIZE) {
+            cout << "Max ban size reached.\n";
+          }
+        }
+        else {
+          cout << "Card was previously removed from the pool.\n";
+        }
       }
     }
     

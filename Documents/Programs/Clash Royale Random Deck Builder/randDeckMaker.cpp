@@ -20,20 +20,20 @@ int main() {
 	const int DECK_SIZE = 8;
 	const int MAX_BAN_SIZE = NUM_CARDS - DECK_SIZE;
 	const string CARD_LIST[NUM_CARDS] = {"Arrows", "Bomber", "Archers", "Knight",
-										 "Fireball", "Mini P.E.K.K.A", 
-										 "Musketeer", "Giant", "Prince", 
-										 "Baby Dragon", "Skeleton Army", "Witch",
-										 "Spear Goblins", "Goblins", 
-										 "Goblin Hut", "Valkyrie", "Lightning",
-										 "Goblin Barrel", "Skeletons", "Minions",
-										 "Tombstone", "Bomb Tower", 
-										 "Giant Skeleton", "Balloon", "Cannon",
-										 "Barbarians", "Rocket", "Barbarian Hut",
-										 "Rage", "X-Bow", "Tesla", 
-										 "Minion Horde", "Inferno Tower",
-										 "Hog Rider", "Freeze", "P.E.K.K.A",
-										 "Zap", "Wizard", "Mirror", "Mortar",
-										 "Elixir Collector", "Golem"};
+								                  		 "Fireball", "Mini P.E.K.K.A", 
+										              		 "Musketeer", "Giant", "Prince", 
+										              		 "Baby Dragon", "Skeleton Army", "Witch",
+									             		 	   "Spear Goblins", "Goblins", 
+									             		 	   "Goblin Hut", "Valkyrie", "Lightning",
+									             		 	   "Goblin Barrel", "Skeletons", "Minions",
+							             		 			   "Tombstone", "Bomb Tower", 
+								             		 		   "Giant Skeleton", "Balloon", "Cannon",
+							             		 			   "Barbarians", "Rocket", "Barbarian Hut",
+							             		 			   "Rage", "X-Bow", "Tesla", 
+							             		 			   "Minion Horde", "Inferno Tower",
+								             		 		   "Hog Rider", "Freeze", "P.E.K.K.A",
+							             		 			   "Zap", "Wizard", "Mirror", "Mortar",
+							             		 			   "Elixir Collector", "Golem"};
 	int randDeck[DECK_SIZE];
 	int bannedCards[NUM_CARDS];
 	int numBans;

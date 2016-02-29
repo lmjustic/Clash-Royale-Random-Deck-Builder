@@ -16,9 +16,10 @@ bool inArray(int arr[], int size, int card);
 void printDeck(int deck[], int deckSize, const string cardList[]);
 
 int main() {
-  const int NUM_CARDS = 42;
+  const int NUM_CARDS = 48;
   const int DECK_SIZE = 8;
   const int MAX_BAN_SIZE = NUM_CARDS - DECK_SIZE;
+  const int NUM_LEGENDARIES = 2;
   const string CARD_LIST[NUM_CARDS] = {"Arrows", "Bomber", "Archers", "Knight",
                                        "Fireball", "Mini P.E.K.K.A", 
                                        "Musketeer", "Giant", "Prince", 
@@ -33,7 +34,15 @@ int main() {
                                        "Minion Horde", "Inferno Tower",
                                        "Hog Rider", "Freeze", "P.E.K.K.A",
                                        "Zap", "Wizard", "Mirror", "Mortar",
-                                       "Elixir Collector", "Golem"};
+                                       "Elixir Collector", "Golem", "Poison",
+                                       "Royal Giant", "Three Musketeers",
+                                       "Dark Prince", "Ice Wizard", "Princess"
+                                      };
+  const int LEGENDARY_IDS[NUM_LEGENDARIES] = {getIndex(CARD_LIST, NUM_CARDS, 
+                                                       "Ice Wizard"),
+                                              getIndex(CARD_LIST, NUM_CARDS, 
+                                                       "Princess")
+                                             };
   int randDeck[DECK_SIZE];
   int bannedCards[NUM_CARDS];
   int numBans;
@@ -58,7 +67,16 @@ int main() {
       banID = getIndex(CARD_LIST, NUM_CARDS, ban);
       newBan = !inArray(bannedCards, numBans, banID);
       if (ban != "done") {
-        if (banID < 0) {
+        if (ban == "Legendary" || ban == "Legendaries") {
+          for (int i = 0; i < NUM_LEGENDARIES; i++) {
+            if (!inArray(bannedCards, numBans, LEGENDARY_IDS[i])) {
+              bannedCards[numBans] = LEGENDARY_IDS[i];
+              numBans++;
+            }
+          }
+          cout << "Legendary cards have been removed from the pool.\n";
+        }
+        else if (banID < 0) {
           cout << ban << " is not a valid card. Type the name exactly as it ";
           cout << "appears on the in-game card.\n";
         }
@@ -81,7 +99,7 @@ int main() {
       newRandCard = false;
       isBannedCard = true;
       while (!newRandCard || isBannedCard) {
-        randCard = rand() % 42;
+        randCard = rand() % NUM_CARDS;
         newRandCard = !inArray(randDeck, DECK_SIZE, randCard);
         isBannedCard = inArray(bannedCards, numBans, randCard);
       }

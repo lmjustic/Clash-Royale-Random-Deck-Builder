@@ -105,15 +105,24 @@ int main() {
     }
     
     // Generates the random deck
-    for (int i = 0; i < DECK_SIZE; i++) {
-      newRandCard = false;
-      isBannedCard = true;
-      while (!newRandCard || isBannedCard) {
-        randCard = rand() % NUM_CARDS;
-        newRandCard = !inArray(randDeck, DECK_SIZE, randCard);
-        isBannedCard = inArray(bannedCards, numBans, randCard);
+    if (numBans = MAX_BAN_SIZE) {
+      for (int i = 0; i < DECK_SIZE; i++) {
+        if (!inArray(bannedCards, numBans, i)) {
+          randDeck[i] = i;
+        }
       }
-      randDeck[i] = randCard;
+    }
+    else {
+      for (int i = 0; i < DECK_SIZE; i++) {
+        newRandCard = false;
+        isBannedCard = true;
+        while (!newRandCard || isBannedCard) {
+          randCard = rand() % NUM_CARDS;
+          newRandCard = !inArray(randDeck, DECK_SIZE, randCard);
+          isBannedCard = inArray(bannedCards, numBans, randCard);
+        }
+        randDeck[i] = randCard;
+      }
     }
     
     // Controls the loop of the program

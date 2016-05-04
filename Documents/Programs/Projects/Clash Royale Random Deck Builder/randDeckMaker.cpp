@@ -7,8 +7,8 @@
  */
 
 #include <cstdlib>
-#include <iostream>
 #include <ctime>
+#include <iostream>
 using namespace std;
 
 int getIndex(const string arr[], int size, string card);
@@ -97,9 +97,11 @@ int main() {
           }
         }
         else {
-          cout << "Card was previously removed from the pool.\n";
+          cout << ban << " was previously removed from the pool.\n";
         }
       }
+      cout << "\nRemoved Cards:\n";
+      printDeck(bannedCards, numBans, CARD_LIST);
     }
     
     // Generates the random deck

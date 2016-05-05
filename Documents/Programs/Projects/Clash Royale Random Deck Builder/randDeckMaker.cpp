@@ -105,7 +105,7 @@ int main() {
     }
     
     // Generates the random deck
-    if (numBans = MAX_BAN_SIZE) {
+    if (numBans == MAX_BAN_SIZE) {
       for (int i = 0; i < DECK_SIZE; i++) {
         if (!inArray(bannedCards, numBans, i)) {
           randDeck[i] = i;
